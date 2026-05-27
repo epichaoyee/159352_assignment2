@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Flight from '@/lib/models/Flight';
 import mongoose from 'mongoose';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   await dbConnect();
 

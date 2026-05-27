@@ -5,6 +5,8 @@ import { AIRPORTS } from '@/lib/constants';
 import { startOfDay, endOfDay } from 'date-fns';
 import { fromZonedTime } from 'date-fns-tz';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const orig = searchParams.get('orig');

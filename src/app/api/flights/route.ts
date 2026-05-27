@@ -3,6 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import Flight from '@/lib/models/Flight';
 import { startOfDay, endOfDay } from 'date-fns';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const origin = searchParams.get('origin');
