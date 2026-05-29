@@ -22,6 +22,9 @@ export default function Home() {
           </p>
           <div className="bg-white p-6 rounded-2xl shadow-2xl max-w-4xl mx-auto">
             <SearchForm />
+            <p className="mt-4 text-xs text-gray-400 text-center">
+              Tip: Some routes are infrequent — e.g. Sydney departs Fridays only, Rotorua runs Mon–Fri, Great Barrier Mon/Wed/Fri.
+            </p>
           </div>
         </div>
       </div>

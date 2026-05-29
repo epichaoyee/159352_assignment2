@@ -30,7 +30,7 @@ export default function MyBookingsPage() {
   const handleSearch = async (e?: React.FormEvent, name?: string) => {
     if (e) e.preventDefault();
     const searchName = name || passengerName;
-    if (!searchName) return;
+    if (!searchName.trim()) { alert('Please enter a passenger name.'); return; }
 
     setPassengerName(searchName);
     setLoading(true);
@@ -75,12 +75,11 @@ export default function MyBookingsPage() {
 
       {/* Search Form */}
       <div className="max-w-xl mx-auto mb-16">
-        <form onSubmit={handleSearch} className="flex gap-2">
+        <form onSubmit={handleSearch} className="flex gap-2" noValidate>
           <div className="relative flex-1">
             <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
             <input
               type="text"
-              required
               placeholder="Enter passenger name"
               className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-xl shadow-sm focus:ring-2 focus:ring-primary-500 outline-none transition-all"
               value={passengerName}

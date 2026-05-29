@@ -38,6 +38,7 @@ export default function BookingPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.passengerName.trim()) { alert('Please enter your full name.'); return; }
     setSubmitting(true);
     try {
       const res = await fetch('/api/bookings', {
@@ -82,7 +83,7 @@ export default function BookingPage() {
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
               <User className="h-6 w-6 text-primary-600" /> Passenger Information
             </h2>
-            <form id="booking-form" onSubmit={handleSubmit} className="space-y-6">
+            <form id="booking-form" onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
@@ -90,7 +91,6 @@ export default function BookingPage() {
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                     <input
                       type="text"
-                      required
                       placeholder="John Doe"
                       className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none transition-all"
                       value={formData.passengerName}
