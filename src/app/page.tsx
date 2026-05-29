@@ -69,8 +69,8 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { name: 'Sydney', code: 'YSSY', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=2070&auto=format&fit=crop' },
-               { name: 'Rotorua', code: 'NZRO', image: 'https://images.unsplash.com/photo-1589871146114-066802382547?q=80&w=2070&auto=format&fit=crop' },
-              { name: 'Great Barrier Island', code: 'NZGB', image: 'https://images.unsplash.com/photo-1610405105252-969f6979435b?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Rotorua', code: 'NZRO', image: 'https://images.unsplash.com/photo-1529522724533-6baddb37c50a?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Great Barrier Island', code: 'NZGB', image: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=2070&auto=format&fit=crop' },
             ].map((dest) => (
               <div key={dest.code} className="group relative rounded-xl overflow-hidden shadow-lg h-64">
                 <img src={dest.image} alt={dest.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
