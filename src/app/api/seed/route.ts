@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
-import Flight, { IFlight } from '@/lib/models/Flight';
+import Flight from '@/lib/models/Flight';
 import { AIRCRAFT } from '@/lib/constants';
 import { addDays, startOfWeek, setHours, setMinutes, addHours } from 'date-fns';
 import { fromZonedTime } from 'date-fns-tz';

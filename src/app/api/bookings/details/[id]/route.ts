@@ -23,7 +23,7 @@ export async function GET(
 
     return NextResponse.json({
       ...booking.toObject(),
-      flightId: flight.toObject() // Include flight details for the invoice
+      flightId: flight.toObject()
     });
   } catch (error) {
     console.error('Error fetching booking details:', error);

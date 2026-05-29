@@ -5,7 +5,7 @@ import Flight from '@/lib/models/Flight';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-    await dbConnect();
+  await dbConnect();
 
   const flights = await Flight.find(
     { 'bookings.status': 'booked' },
@@ -13,7 +13,7 @@ export async function GET() {
   ).limit(50);
 
   const names = new Set<string>();
-  
+
   for (const flight of flights) {
     for (const booking of flight.bookings) {
       if (booking.status === 'booked' && booking.passengerName) {
@@ -21,8 +21,8 @@ export async function GET() {
         if (names.size >= 15) break;
       }
     }
-       if (names.size >= 15) break;
+    if (names.size >= 15) break;
   }
 
-     return NextResponse.json({ names: Array.from(names) });
+  return NextResponse.json({ names: Array.from(names) });
 }

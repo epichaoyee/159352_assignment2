@@ -20,7 +20,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Flight not found' }, { status: 404 });
     }
 
-    // Check capacity using embedded bookings
     const activeBookings = flight.bookings.filter((b: any) => b.status === 'booked');
     if (activeBookings.length >= flight.capacity) {
       return NextResponse.json({ error: 'Flight is already full' }, { status: 400 });
@@ -57,7 +56,6 @@ export async function GET(request: Request) {
   }
 
   try {
-    // Search for flights that have this passenger in their bookings
     const flights = await Flight.find({
       'bookings': {
         $elemMatch: {
@@ -67,16 +65,15 @@ export async function GET(request: Request) {
       }
     });
 
-    // Extract the specific bookings for this passenger
-    const userBookings = flights.flatMap(flight => 
+    const userBookings = flights.flatMap(flight =>
       flight.bookings
-        .filter((b: any) => 
-          b.passengerName.toLowerCase() === passengerName.toLowerCase() && 
+        .filter((b: any) =>
+          b.passengerName.toLowerCase() === passengerName.toLowerCase() &&
           b.status === 'booked'
         )
         .map((b: any) => ({
           ...b.toObject(),
-          flightId: flight // Include flight info for the UI
+          flightId: flight
         }))
     );
 

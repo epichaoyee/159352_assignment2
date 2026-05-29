@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Flight from '@/lib/models/Flight';
 import { AIRPORTS } from '@/lib/constants';
-import { startOfDay, endOfDay } from 'date-fns';
 import { fromZonedTime } from 'date-fns-tz';
 
 export const dynamic = 'force-dynamic';
